@@ -5,11 +5,9 @@ class Beacon {
 
   constructor(systemid, {
     beaconHost = 'api.cilamp.se',
-    apiVersion = 1,
   } = {}) {
     this._systemid = systemid;
     this._beaconHost = beaconHost;
-    this._apiVersion = apiVersion;
   }
 
   color(color) {
@@ -21,7 +19,7 @@ class Beacon {
   }
 
   async _post(data) {
-    const path = `/v${ this._apiVersion }/${ this._systemid }/`;
+    const path = `/v1/${ this._systemid }/`;
     const postData = querystring.stringify(data);
 
     return new Promise((resovle, reject) => {
