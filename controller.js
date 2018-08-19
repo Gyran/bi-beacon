@@ -1,7 +1,7 @@
 const https = require('https');
 const querystring = require('querystring');
 
-class BeaconController {
+class Controller {
 
   constructor(systemid, {
     host = 'api.cilamp.se',
@@ -69,4 +69,4 @@ class BeaconController {
 
 }
 
-module.exports = BeaconController;
+module.exports = Controller;
