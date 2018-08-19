@@ -24,7 +24,6 @@ class Client {
     this._connected = false;
 
     this._listeners = {};
-
   }
 
   connect() {
@@ -32,6 +31,7 @@ class Client {
     this._socket.connect(this._port, this._host, () => {
       this._socket.write(`Areal ${ this._systemid }\n`);
       this._connected = true;
+      this._emit(EVENT.CONNECTED);
     });
 
     this._socket.on('data', (...args) => this._onSocketData(...args));
@@ -39,8 +39,6 @@ class Client {
   }
 
   on(event, listener) {
-    console.log('push lis', event, listener);
-
     if (!this._listeners[event]) {
       this._listeners[event] = [];
     }
