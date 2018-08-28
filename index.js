@@ -20,7 +20,7 @@ class BIBeacon {
     return this._post({ color, period });
   }
 
-  async _post(data) {
+  _post(data) {
     const path = `/v1/${ this._systemid }/`;
     const postData = querystring.stringify(data);
 
